@@ -39,6 +39,12 @@ void addTwoNumbers(ListNode *l1, ListNode *l2)
     int rev1 = revnum(num1);
     int rev2 = revnum(num2);
     int sum = rev1 + rev2; // 807
+    cout << sum;
+
+    ListNode *sll = NULL;
+    sll = new ListNode();
+    sll->val = (int)sum;
+    return sll->val;
 
     ListNode *head = NULL, *prev = NULL;
     while (sum != 0)
@@ -46,7 +52,6 @@ void addTwoNumbers(ListNode *l1, ListNode *l2)
         ListNode *cur = new ListNode(sum % 10);
         sum /= 10;
     }
-    return cur;
 
     // while (t != NULL)
     // {
