@@ -3,6 +3,13 @@ using namespace std;
 /* You must implement a solution with a linear runtime complexity and use only constant extra space. */
 int singleNumber(vector<int> &nums)
 {
+    int ans = 0;
+    for (auto x : nums)
+        ans ^= x;
+    return ans;
+}
+int singleNumber_x(vector<int> &nums)
+{
     unordered_map<int, int> countnum;
     for (int i = 0; i < nums.size(); i++)
     {
