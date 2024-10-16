@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+/* Error in bf merge
+Line 11: Char 28:
+=================================================================
+==22==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000000434 at pc 0x55c073e44b74 bp 0x7ffcd1aecb50 sp 0x7ffcd1aecb48
+*/
+class Solution
+{
+public:
+    void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
+    {
+        int midAptr = m - 1;
+        int nptr = n - 1;
+        int lstptr = m + n - 1;
+        while (nptr >= 0)
+        {
+            if (midAptr >= 0 && nums1[midAptr] > nums2[nptr])
+            {
+                nums1[lstptr] = nums1[midAptr];
+                midAptr--;
+            }
+            else
+            {
+                nums1[lstptr] = nums2[nptr];
+                nptr--;
+            }
+            lstptr--;
+        }
+    }
+    // void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
+    // {
+    //     if (n == 0)
+    //         return;
+    //     if (m == 0)
+    //     {
+    //         nums1 = nums2;
+    //     }
+    //     else
+    //     {
+    //         for (auto i = m, j = 0; i <= m + n, j <= n; i++, j++)
+    //         {
+    //             nums1[i] = nums2[j];
+    //         }
+    //         sort(nums1.begin(), nums1.end());
+    //     }
+    // }
+};
+
+int main()
+{
+    Solution obj = Solution();
+    // vector<int> nums1 = {1, 0};
+    // vector<int> nums2 = {2};
+    vector<int> nums1 = {1, 2, 6, 0, 0, 0};
+    vector<int> nums2 = {2, 4, 5};
+    int m = 3;
+    int n = 3;
+    obj.merge(nums1, m, nums2, n);
+    for (int x : nums1)
+    {
+        cout << x << ",";
+    }
+    return 0;
+}
