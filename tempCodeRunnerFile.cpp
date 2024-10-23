@@ -1,3 +1,3 @@
-ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
-// {
-// }
+nt x : nums)
+        // {
+        // }
